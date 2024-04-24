@@ -4,9 +4,15 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "Users")
+@AllArgsConstructor // Genera constructo que toma como parametros todos los campos de la clase
+@NoArgsConstructor // Genera un constructor sin parametros (Constructor por defecto)
+@Data // Funcionalidades @ToString, @EqualsAndHashCode, @Getter y @Setter
 
 public class User {
 
