@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class User {
 
     @Id
-    private Long id;
+    private Integer id;
 
     @Column(name = "username", length = 100, nullable = false)
     private String name;
@@ -32,6 +32,7 @@ public class User {
     private Integer contactNumber;
 
     @Column(name = "rol", length = 100, nullable = false)
-    private Integer rol;
+    private String rol;
+
 
 }
