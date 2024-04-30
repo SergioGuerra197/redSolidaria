@@ -19,7 +19,7 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @PostMapping("")
+    @PostMapping("/signup")
     public void createUser(@RequestBody User newUser){
         userService.createUser(newUser);
     }

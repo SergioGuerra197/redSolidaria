@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area de acceso</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@400,700;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar bg-p-l pd-2">
+        <a href="/" class="navbar__icon"></a>
+        <div class="navbar__options">
+            <a href="#" class="navbar__options--contact ft-1 txt-deco-non w-100 pd-05">Contacto</a>
+            <a href="signup.html" class="navbar__options--signup ft-1 txt-deco-non w-100 pd-05">Registrarse</a>
+            <a href="login.html" class="navbar__options--login ft-1 txt-deco-non w-100 pd-05">Acceder</a>
+        </div>
+    </nav>
+    <main>
+        <h1 class="signuptitle ft-3">Registrate para enterarte de las contribuciones y beneficios</h1>
+        <div class="signupcontainer pd-3">
+            <form action="" class="signupform pd-3">
+                <div class="entryarea">
+                    <input type="number" name="id" class="signupform__input pd-1" required>
+                    <span class="signupform__placeholder">Identificación</span>
+                </div>
+                <div class="entryarea">
+                    <input type="text" name="name" class="signupform__input pd-1" required>
+                    <span class="signupform__placeholder">Nombre</span>
+                </div>
+                <div class="entryarea">
+                    <input type="text" name="email" class="signupform__input pd-1" required>
+                    <span class="signupform__placeholder">Correo</span>
+                </div>
+                <div class="entryarea">
+                    <input type="password" name="password" class="signupform__input pd-1" required>
+                    <span class="signupform__placeholder">Contraseña</span>
+                </div>
+                <div class="entryarea">
+                    <input type="tel number" name="contact_number" class="signupform__input pd-1" required minlength="10" maxlength="10">
+                    <span class="signupform__placeholder">Numero telefonico</span>
+                </div>
+                <div class="entryarea">
+                    <select name="role" class="signupform__input pd-1">
+                        <option value="" selected></option>
+                        <option value="Estudiante">Estudiante</option>
+                        <option value="Profesor">Profesor</option>
+                        <option value="Administrativo">Administrativo</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                    <span class="signupform__placeholder">Rol</span>
+                </div>
+                <button type="submit" class="signupform__submit pd-1 ft-1" onclick="enviarDatos()">
+                    Registro
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-check submitsvg" width="28"
+                        height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
+                        <path d="M15 19l2 2l4 -4" />
+                    </svg>
+                </button>
+            </form>
+            <div class="signupcontainer__icon"></div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p class="footer__text ft-0 pd-1">Red Solidaria 2024. @All rights reserved.</p>
+    </footer>
+</body>
+<script src="signup.js"></script>
+</html>

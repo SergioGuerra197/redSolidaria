@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area de acceso</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@400,700;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar bg-p-l pd-2">
+        <a href="/" class="navbar__icon"></a>
+        <div class="navbar__options">
+            <a href="#" class="navbar__options--contact ft-1 txt-deco-non w-100 pd-05">Contacto</a>
+            <a href="/signup.html" class="navbar__options--signup ft-1 txt-deco-non w-100 pd-05">Registrarse</a>
+            <a href="/login.html" class="navbar__options--login ft-1 txt-deco-non w-100 pd-05">Acceder</a>
+        </div>
+    </nav>
+    <main>
+        <h1 class="logintitle ft-3">Inicia sesión y empieza con tu contribución</h1>
+        <div class="logincontainer pd-3">
+            <form action="" class="loginform pd-3">
+                <div class="loginform__icon"></div>
+                <div class="entryarea">
+                    <input type="text" name="email" class="loginform__input pd-1" required>
+                    <span class="loginform__input--placeholder">Correo</span>
+                </div>
+                <div class="entryarea">
+                    <input type="password" name="password" class="loginform__input pd-1" required>
+                    <span class="loginform__input--placeholder">Clave</span>
+                </div>
+                <button type="submit" class="loginform__submit pd-1 ft-1">
+                    Acceso
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login-2 submitsvg" width="28"
+                        height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFF" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M9 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" />
+                        <path d="M3 12h13l-3 -3"/>
+                        <path d="M13 15l3 -3"/>
+                    </svg>
+                </button>
+            </form>
+            <div class="logincontainer__animation"></div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p class="footer__text ft-0 pd-1">Red Solidaria 2024. @All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

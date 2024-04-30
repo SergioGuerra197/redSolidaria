@@ -1,0 +1,481 @@
+/* Variables */
+:root {
+    --primary-light: #ECF3DB;
+    --primary-dark: #C2C8B2;
+    --secondary: #708967;
+    --black: #000;
+    --white: #FFF;
+    --alpha-white: #ffffff80;
+    --gray: #9c9c9c;
+}
+
+/* Globals */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Navegation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar__icon {
+    width: 12rem;
+    height: 6rem;
+    background-image: url(/img/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.navbar__options {
+    text-align: center;
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar__options--signup,
+.navbar__options--login {
+    border-radius: .5rem;
+    transition: .5s ease;
+}
+
+.navbar__options--contact {
+    text-align: end;
+    color: var(--black);
+}
+
+.navbar__options--signup {
+    color: var(--secondary);
+    border: .2rem solid var(--secondary);
+}
+
+.navbar__options--signup:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+.navbar__options--login {
+    color: var(--white);
+    border: .2rem solid transparent;
+    background-color: var(--secondary);
+}
+
+.navbar__options--login:hover {
+    border-color: var(--secondary);
+    background-color: transparent;
+    color: var(--secondary);
+}
+
+/* Footer */
+.footer {
+    color: var(--gray);
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer__text {
+    margin: 0 2rem;    
+    border-top: .1rem solid var(--gray);
+}
+
+/* Utilities */
+.bg-p-l {
+    background-color: var(--primary-light);
+}
+
+.bg-p-d {
+    background-color: var(--primary-dark);
+}
+
+.bg-s {
+    background-color: var(--secondary);
+}
+
+.no-mg {
+    margin: 0;
+}
+
+.pd-05 {
+    padding: .5rem;
+}
+
+.pd-1 {
+    padding: 1rem;
+}
+
+.pd-2 {
+    padding: 2rem;
+}
+
+.pd-3 {
+    padding: 3rem;
+}
+
+.txt-deco-non {
+    text-decoration: none;
+}
+
+.ft-0 {
+    font-size: 1rem;
+}
+
+.ft-1 {
+    font-size: 1.5rem;
+}
+
+.ft-2 {
+    font-size: 2.5rem;
+}
+
+.ft-3 {
+    font-size: 3.5rem;
+}
+
+.ft-4 {
+    font-size: 4.5rem;
+}
+
+.ft-5 {
+    font-size: 5.5rem;
+}
+
+.w-50 {
+    width: 5rem;
+}
+
+.w-100 {
+    width: 10rem;
+}
+
+.w-200 {
+    width: 20rem;
+}
+
+.w-275 {
+    width: 27.5rem;
+}
+
+.m-t-1 {
+    margin-top: 1rem;
+}
+
+.m-t-2 {
+    margin-top: 2rem;
+}
+
+.m-t-3 {
+    margin-top: 3rem;
+}
+
+.m-b-1 {
+    margin-bottom: 1rem;
+}
+
+.m-b-2 {
+    margin-bottom: 2rem;
+}
+
+.m-b-3 {
+    margin-bottom: 3rem;
+}
+
+.m-b-4 {
+    margin-bottom: 4rem;
+}
+
+/* --- HOME VIEW --- */
+
+/* Main content */
+.landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.maindesc {
+    color: var(--gray);
+}
+
+.hero {    
+    background-image: url(img/OIP.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 30rem;    
+}
+
+.hero__fachade {
+    -webkit-box-shadow: inset 0 0 68px 20px rgba(255, 255, 255, 0.7);
+    -moz-box-shadow: inset 0 0 68px 20px rgba(255, 255, 255, 0.7);
+    box-shadow: inset 0 0 68px 20px rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--alpha-white);
+    width: 100%;
+    height: 100%;
+}
+
+.hero__btn {
+    position: absolute;
+    background-color: var(--secondary);
+    color: var(--white);
+    border-radius: .5rem;
+    text-align: center;
+    font-weight: 400;
+    transition: .5s ease;
+}
+
+.hero__btn:hover{
+    background-color: var(--primary-light);
+    color: var(--secondary);
+    font-size: 3.8rem;
+}
+
+/* --- LOGIN AND SIGNUP VIEWS --- */
+.entryarea{
+    position: relative;
+    width: 100%;    
+    height: 4rem;        
+}
+
+.submitsvg{
+    stroke: var(--white);
+}
+
+/* --- LOGIN VIEW --- */
+.logintitle{
+    text-align: center;
+    margin: 3rem 35%;
+}
+
+.logincontainer{    
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);     
+    background-color: var(--primary-light);
+}
+
+.logincontainer__animation{    
+    width: auto;
+    height: 100%;
+    background-image: url(img/login_anim.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;       
+    animation: transitionLeft .5s;
+    margin-right: 30rem;
+}
+
+.loginform{       
+    border-right: .1rem solid var(--gray);
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 50%;
+}
+
+.loginform__input{       
+    width: 100%;         
+    border: none;          
+    border-radius: .5rem;
+    outline: none;
+    transition: 0.1s ease;
+}
+
+
+.loginform__input--placeholder{
+    left: 0;
+    color: var(--gray);    
+    position: absolute;    
+    pointer-events: none;
+    transition: 0.5s ease; 
+    padding: 0 1rem;
+}
+
+.loginform__input:valid ~ .loginform__input--placeholder,
+.loginform__input:focus ~ .loginform__input--placeholder{
+    color: var(--white);
+    background-color: var(--secondary);
+    border-radius: .5rem;
+    transform: translateX(1rem) translateY(-.7rem);
+    font-size: 1rem;       
+    padding: 0 1rem;
+}
+
+
+.loginform__submit{        
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    border-radius: .5rem;
+    background-color: var(--secondary);
+    color: var(--white);
+    border: .2rem solid transparent;
+    transition: .5s ease;
+}
+
+.loginform__submit:hover{
+    cursor: pointer;
+    background-color: transparent;
+    border-color: var(--secondary);
+    color: var(--secondary);        
+}
+
+.loginform__submit:hover .submitsvg{
+    stroke: var(--secondary);
+}
+
+.loginform__icon{    
+    width: 100%;
+    height: 12rem;
+    background-image: url(img/login_icon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;        
+}
+
+/* --- SIGNUP VIEW --- */
+
+.signuptitle{
+    text-align: center;
+    margin: 3rem 25%;
+}
+
+.signupcontainer{    
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);     
+    background-color: var(--primary-light);
+}
+
+.signupcontainer__icon{    
+    width: auto;
+    height: 100%;
+    background-image: url(img/signup_icon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;       
+    animation: transitionLeft .5s;
+    margin-right: 40rem;
+}
+
+.signupform{       
+    border-right: .1rem solid var(--gray);
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 50%;
+}
+
+.signupform__input{       
+    width: 100%;         
+    border: none;          
+    border-radius: .5rem;
+    outline: none;
+    transition: 0.1s ease;
+}
+
+
+.signupform__placeholder{
+    left: 0;
+    color: var(--gray);    
+    position: absolute;    
+    pointer-events: none;
+    transition: 0.5s ease; 
+    padding: 0 1rem;
+}
+
+.signupform__input:valid ~ .signupform__placeholder,
+.signupform__input:focus ~ .signupform__placeholder{
+    color: var(--white);
+    background-color: var(--secondary);
+    border-radius: .5rem;
+    transform: translateX(1rem) translateY(-.7rem);
+    font-size: 1rem;       
+    padding: 0 1rem;
+}
+
+
+.signupform__submit{        
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    border-radius: .5rem;
+    background-color: var(--secondary);
+    color: var(--white);
+    border: .2rem solid transparent;
+    transition: .5s ease;
+}
+
+.signupform__submit:hover{
+    cursor: pointer;
+    background-color: transparent;
+    border-color: var(--secondary);
+    color: var(--secondary);        
+}
+
+.signupform__submit:hover .submitsvg{
+    stroke: var(--secondary);
+}
+
+.signupform__role{
+    background-color: var(--white);
+    width: 100%;
+    border: none;
+    border-radius: .5rem;
+    outline: none;
+    transition: 0.1s ease;
+}
+
+/* Animations */
+@keyframes transitionLeft{
+    from{
+        opacity: 0;
+        background-position: right;        
+    }
+
+    to{
+        opacity: 1;
+        background-position: center;            
+    }
+}
+
+@keyframes transitionRight{
+    from{
+        opacity: 0;
+        background-position: left;
+    }
+
+    to{
+        opacity: 1;
+        background-position: center;
+    }
+}
+
+
