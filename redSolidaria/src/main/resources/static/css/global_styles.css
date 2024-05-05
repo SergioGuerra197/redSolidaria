@@ -1,0 +1,243 @@
+/* Variables */
+:root {
+    --primary-light: #ECF3DB;
+    --primary-dark: #C2C8B2;
+    --secondary: #708967;
+    --black: #000;
+    --white: #FFF;
+    --alpha-white: #ffffff80;
+    --gray: #9c9c9c;
+}
+
+/* Globals */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Navegation bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar__icon {
+    width: 12rem;
+    height: 6rem;
+    background-image: url(/img/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.navbar__options {
+    text-align: center;
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar__options--signup,
+.navbar__options--login {
+    border-radius: .5rem;
+    transition: .5s ease;
+}
+
+.navbar__options--contact {
+    text-align: end;
+    color: var(--black);
+}
+
+.navbar__options--signup {
+    color: var(--secondary);
+    border: .2rem solid var(--secondary);
+}
+
+.navbar__options--signup:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+.navbar__options--login {
+    color: var(--white);
+    border: .2rem solid transparent;
+    background-color: var(--secondary);
+}
+
+.navbar__options--login:hover {
+    border-color: var(--secondary);
+    background-color: transparent;
+    color: var(--secondary);
+}
+
+/* Footer */
+.footer {
+    color: var(--gray);
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer__text {
+    margin: 0 2rem;    
+    border-top: .1rem solid var(--gray);
+}
+
+/* Utilities */
+.bg-p-l {
+    background-color: var(--primary-light);
+}
+
+.bg-p-d {
+    background-color: var(--primary-dark);
+}
+
+.bg-s {
+    background-color: var(--secondary);
+}
+
+.no-mg {
+    margin: 0;
+}
+
+.pd-05 {
+    padding: .5rem;
+}
+
+.pd-1 {
+    padding: 1rem;
+}
+
+.pd-2 {
+    padding: 2rem;
+}
+
+.pd-3 {
+    padding: 3rem;
+}
+
+.txt-deco-non {
+    text-decoration: none;
+}
+
+.ft-0 {
+    font-size: 1rem;
+}
+
+.ft-1 {
+    font-size: 1.5rem;
+}
+
+.ft-2 {
+    font-size: 2.5rem;
+}
+
+.ft-3 {
+    font-size: 3.5rem;
+}
+
+.ft-4 {
+    font-size: 4.5rem;
+}
+
+.ft-5 {
+    font-size: 5.5rem;
+}
+
+.w-50 {
+    width: 5rem;
+}
+
+.w-100 {
+    width: 10rem;
+}
+
+.w-200 {
+    width: 20rem;
+}
+
+.w-275 {
+    width: 27.5rem;
+}
+
+.m-t-1 {
+    margin-top: 1rem;
+}
+
+.m-t-2 {
+    margin-top: 2rem;
+}
+
+.m-t-3 {
+    margin-top: 3rem;
+}
+
+.m-b-1 {
+    margin-bottom: 1rem;
+}
+
+.m-b-2 {
+    margin-bottom: 2rem;
+}
+
+.m-b-3 {
+    margin-bottom: 3rem;
+}
+
+.m-b-4 {
+    margin-bottom: 4rem;
+}
+
+/* Animations */
+@keyframes transitionLeft{
+    from{
+        opacity: 0;
+        background-position: right;
+    }
+
+    to{
+        opacity: 1;
+        background-position: center;
+    }
+}
+
+@keyframes transitionRight{
+    from{
+        opacity: 0;
+        background-position: left;
+    }
+
+    to{
+        opacity: 1;
+        background-position: center;
+    }
+}
+
+/* Shared View Styles */
+/* --- LOGIN AND SIGNUP VIEWS --- */
+.entryarea{
+    position: relative;
+    width: 100%;    
+    height: 4rem;        
+}
+
+.submitsvg{
+    stroke: var(--white);
+}
+
+
