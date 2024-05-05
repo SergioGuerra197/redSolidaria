@@ -5,8 +5,9 @@
     --secondary: #708967;
     --black: #000;
     --white: #FFF;
-    --alpha-white: #ffffff80;
-    --gray: #9c9c9c;
+    --alpha-white: #FFFFFF80;
+    --gray: #9C9C9C;
+    --success: #ADFF2F;
 }
 
 /* Globals */
@@ -41,7 +42,7 @@ body {
 .navbar__icon {
     width: 12rem;
     height: 6rem;
-    background-image: url(/img/logo.png);
+    background-image: url(../img/logo.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -228,8 +229,19 @@ body {
     }
 }
 
+@keyframes TopBottom{
+    from{
+        top: -100rem;
+    }
+
+    to{
+        top: 4rem;
+    }
+}
+
 /* Shared View Styles */
 /* --- LOGIN AND SIGNUP VIEWS --- */
+
 .entryarea{
     position: relative;
     width: 100%;    

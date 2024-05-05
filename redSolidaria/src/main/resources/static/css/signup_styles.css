@@ -1,4 +1,20 @@
 /* --- SIGNUP VIEW --- */
+.successMessage{
+    border-radius: .5rem;
+    background-color: var(--secondary);
+    z-index: 1111;
+    position: fixed;
+    color: var(--white);
+    animation: TopBottom .6s;
+    top:4rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.successMessage::before{
+    transition: .5s ease-in;
+    background-color: var(--success);
+}
 
 .signuptitle{
     text-align: center;
