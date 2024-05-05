@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/index}">
+<head>
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/home_styles.css}">
+</head>
+<body>
+    <main class="landing" layout:fragment="content">
+        <h1 style="color: rgb(42, 60, 41);" class="maintitle no-mg m-t-3 ft-5">Dona para la educación</h1>
+        <p class="maindesc no-mg m-b-4">Red estudiantil de donaciones para el Politecnico Jaime Isaza Cadavid</p>
+        <div class="hero">
+            <div class="hero__fachade">
+                <a th:href="@{/}" class="hero__btn txt-deco-non ft-3 pd-05 w-275">Conocenos</a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

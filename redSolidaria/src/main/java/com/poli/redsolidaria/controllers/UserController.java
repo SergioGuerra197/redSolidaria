@@ -18,4 +18,10 @@ public class UserController {
     public List<User> getAllUser(){
         return userService.getAllUsers();
     }
+
+    @PostMapping("/signup")
+    public String createUser(@RequestBody User newUser){
+        userService.createUser(newUser);
+        return "redirect:/pages/signup?success";
+    }
 }

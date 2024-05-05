@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/index}">
+<head>
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/signup_styles.css}">
+</head>
+<body>
+    <h2 class="ft-2" th:if="${param.exito}">
+        Exito al registrar usuario
+    </h2>
+    <main layout:fragment="content">
+        <h1 class="signuptitle ft-3">Registrate para enterarte de las contribuciones y beneficios</h1>
+        <div class="signupcontainer pd-1">
+            <form th:action="@{/signup}" th:object="${user}" class="signupform pd-3" method="POST">
+                <div class="entryarea">
+                    <input type="text" id="id" th:field="*{id}" class="signupform__input pd-1" required>
+                    <label for="id" class="signupform__placeholder">Identificación</label>
+                </div>
+                <div class="entryarea">
+                    <input type="text" id="name" th:field="*{name}" class="signupform__input pd-1" required>
+                    <label for="name" class="signupform__placeholder">Nombre</label>
+                </div>
+                <div class="entryarea">
+                    <input type="text" id="email" th:field="*{email}" class="signupform__input pd-1" required>
+                    <label for="email" class="signupform__placeholder">Correo</label>
+                </div>
+                <div class="entryarea">
+                    <input type="password" id="password" th:field="*{password}" class="signupform__input pd-1" required>
+                    <label for="password" class="signupform__placeholder">Contraseña</label>
+                </div>
+                <div class="entryarea">
+                    <input type="text" id="contact_number" th:field="*{contactNumber}" class="signupform__input pd-1" required>
+                    <label for="contact_number" class="signupform__placeholder">Numero telefonico</label>
+                </div>
+                <div class="entryarea">
+                    <select class="signupform__input pd-1" id="role" th:field="*{role}">
+                        <option value="estudiante" selected>Estudiante</option>
+                        <option value="profesor">Profesor</option>
+                        <option value="administrativo">Administrativo</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    <label for="role" class="signupform__placeholder">Rol</label>
+                </div>
+                <button type="submit" class="signupform__submit pd-1 ft-1">
+                    Registro
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-check submitsvg" width="28"
+                        height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
+                        <path d="M15 19l2 2l4 -4" />
+                    </svg>
+                </button>
+            </form>
+            <div class="signupcontainer__icon"></div>
+        </div>
+    </main>
+</body>
+</html>
