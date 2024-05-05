@@ -1,0 +1,49 @@
+/* --- HOME VIEW --- */
+
+/* Main content */
+.landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.maindesc {
+    color: var(--gray);
+}
+
+.hero {
+    background-image: url(../img/OIP.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 30rem;
+}
+
+.hero__fachade {
+    -webkit-box-shadow: inset 0 0 68px 20px rgba(255, 255, 255, 0.7);
+    -moz-box-shadow: inset 0 0 68px 20px rgba(255, 255, 255, 0.7);
+    box-shadow: inset 0 0 68px 20px rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--alpha-white);
+    width: 100%;
+    height: 100%;
+}
+
+.hero__btn {
+    position: absolute;
+    background-color: var(--secondary);
+    color: var(--white);
+    border-radius: .5rem;
+    text-align: center;
+    font-weight: 400;
+    transition: .5s ease;
+}
+
+.hero__btn:hover{
+    background-color: var(--primary-light);
+    color: var(--secondary);
+    font-size: 3.8rem;
+}

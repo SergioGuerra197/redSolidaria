@@ -33,6 +33,4 @@ public class User {
 
     @Column(name = "role", length = 100, nullable = false)
     private String role;
-
-
 }
