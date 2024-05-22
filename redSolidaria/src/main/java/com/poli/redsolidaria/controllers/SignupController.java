@@ -3,6 +3,7 @@ package com.poli.redsolidaria.controllers;
 import com.poli.redsolidaria.models.User;
 import com.poli.redsolidaria.services.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,9 @@ public class SignupController {
 
     @PostMapping
     public String addUser(@ModelAttribute("user") User newUser) {
-        System.out.println("Usuario recibido: " + newUser);
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(newUser.getPassword());
+        newUser.setPassword(encodedPassword);
         userService.createUser(newUser);
         return "redirect:/signup?success";
     }
