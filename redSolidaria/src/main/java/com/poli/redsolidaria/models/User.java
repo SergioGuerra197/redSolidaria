@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class User {
 
     @Id
-    private Integer id;
+    private Long id;
 
     @Column(name = "name", length = 100, nullable = false)
     private String name;
@@ -29,7 +29,7 @@ public class User {
     private String password;
 
     @Column(name = "contact_number", length = 20, nullable = false)
-    private Integer contactNumber;
+    private String contactNumber;
 
     @Column(name = "role", length = 100, nullable = false)
     private String role;
