@@ -1,0 +1,93 @@
+/* --- LOGIN VIEW --- */
+.logintitle{
+    text-align: center;
+    margin: 3rem 35%;
+}
+
+.logincontainer{
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: var(--primary-light);
+}
+
+.logincontainer__animation{
+    width: auto;
+    height: 100%;
+    background-image: url(../img/login_anim.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: transitionLeft .5s;
+    margin-right: 30rem;
+}
+
+.loginform{
+    border-right: .1rem solid var(--gray);
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 50%;
+}
+
+.loginform__input{
+    width: 100%;
+    border: none;
+    border-radius: .5rem;
+    outline: none;
+    transition: 0.1s ease;
+}
+
+
+.loginform__placeholder{
+    left: 0;
+    color: var(--gray);
+    position: absolute;
+    pointer-events: none;
+    transition: 0.5s ease;
+    padding: 0 1rem;
+}
+
+.loginform__input:valid ~ .loginform__placeholder,
+.loginform__input:focus ~ .loginform__placeholder{
+    color: var(--white);
+    background-color: var(--secondary);
+    border-radius: .5rem;
+    transform: translateX(1rem) translateY(-.7rem);
+    font-size: 1rem;
+    padding: 0 1rem;
+}
+
+
+.loginform__submit{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    border-radius: .5rem;
+    background-color: var(--secondary);
+    color: var(--white);
+    border: .2rem solid transparent;
+    transition: .5s ease;
+}
+
+.loginform__submit:hover{
+    cursor: pointer;
+    background-color: transparent;
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+.loginform__submit:hover .submitsvg{
+    stroke: var(--secondary);
+}
+
+.loginform__icon{
+    width: 100%;
+    height: 12rem;
+    background-image: url(../img/login_icon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

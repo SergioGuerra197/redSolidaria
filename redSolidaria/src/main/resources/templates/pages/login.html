@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/index}">
+<head>
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/login_styles.css}">
+</head>
+<body>
+    <main layout:fragment="content">
+        <h1 class="logintitle ft-3">Inicia sesión y empieza con tu contribución</h1>
+        <div class="logincontainer pd-1">
+            <form action="" class="loginform pd-3">
+                <div class="loginform__icon"></div>
+                <div class="entryarea">
+                    <input type="text" id="email" name="email" class="loginform__input pd-1" required>
+                    <label for="email" class="loginform__placeholder">Correo</label>
+                </div>
+                <div class="entryarea">
+                    <input type="password" id="password" name="password" class="loginform__input pd-1" required>
+                    <label for="password" class="loginform__placeholder">Clave</label>
+                </div>
+                <button type="submit" class="loginform__submit pd-1 ft-1">
+                    Acceso
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login-2 submitsvg" width="28"
+                        height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFF" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M9 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" />
+                        <path d="M3 12h13l-3 -3"/>
+                        <path d="M13 15l3 -3"/>
+                    </svg>
+                </button>
+            </form>
+            <div class="logincontainer__animation"></div>
+        </div>
+    </main>
+</body>
+</html>

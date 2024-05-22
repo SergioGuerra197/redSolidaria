@@ -1,0 +1,100 @@
+/* --- SIGNUP VIEW --- */
+.successMessage{
+    border-radius: .5rem;
+    background-color: var(--secondary);
+    z-index: 1111;
+    position: fixed;
+    color: var(--white);
+    animation: TopBottom .6s;
+    top:4rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.successMessage::before{
+    transition: .5s ease-in;
+    background-color: var(--success);
+}
+
+.signuptitle{
+    text-align: center;
+    margin: 3rem 25%;
+}
+
+.signupcontainer{
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: var(--primary-light);
+}
+
+.signupcontainer__icon{
+    width: auto;
+    height: 80%;
+    background-image: url(../img/signup_icon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: transitionLeft .5s;
+    margin-right: 40rem;
+}
+
+.signupform{
+    border-right: .1rem solid var(--gray);
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 50%;
+}
+
+.signupform__input{
+    background-color: var(--white);
+    width: 100%;
+    border: none;
+    border-radius: .5rem;
+    outline: none;
+    transition: 0.1s ease;
+}
+
+.signupform__placeholder{
+    left: 0;
+    color: var(--gray);
+    position: absolute;
+    pointer-events: none;
+    transition: 0.5s ease;
+    padding: 0 1rem;
+}
+
+.signupform__input:valid ~ .signupform__placeholder,
+.signupform__input:focus ~ .signupform__placeholder{
+    color: var(--white);
+    background-color: var(--secondary);
+    border-radius: .5rem;
+    transform: translateX(1rem) translateY(-.7rem);
+    font-size: 1rem;
+    padding: 0 1rem;
+}
+
+.signupform__submit{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    border-radius: .5rem;
+    background-color: var(--secondary);
+    color: var(--white);
+    border: .2rem solid transparent;
+    transition: .5s ease;
+}
+
+.signupform__submit:hover{
+    cursor: pointer;
+    background-color: transparent;
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+.signupform__submit:hover .submitsvg{
+    stroke: var(--secondary);
+}

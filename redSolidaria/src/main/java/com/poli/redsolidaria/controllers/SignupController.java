@@ -20,7 +20,7 @@ public class SignupController {
     }
 
     @GetMapping
-    public String getForm(Model model){
+    public String getForm(Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("mainTitle", "Area de registro");
         return "/pages/signup";
@@ -28,6 +28,7 @@ public class SignupController {
 
     @PostMapping
     public String addUser(@ModelAttribute("user") User newUser) {
+        System.out.println("Usuario recibido: " + newUser);
         userService.createUser(newUser);
         return "redirect:/signup?success";
     }

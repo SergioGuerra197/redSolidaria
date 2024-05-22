@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--/*@thymesVar id="mainTitle" type="String"*/-->
+    <title th:text="${mainTitle}"></title>
+
+    <link rel="stylesheet" th:href="@{/css/global_styles.css}">
+</head>
+<body>
+    <nav th:replace="fragments/header :: header"></nav>
+    <main layout:fragment="content"></main>
+    <footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>
