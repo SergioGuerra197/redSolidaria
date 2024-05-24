@@ -10,10 +10,10 @@
     <main layout:fragment="content">
         <h1 class="logintitle ft-3">Inicia sesión y empieza con tu contribución</h1>
         <div class="logincontainer pd-1">
-            <form action="" class="loginform pd-3">
+            <form th:action="@{/login}" method="post" class="loginform pd-3">
                 <div class="loginform__icon"></div>
                 <div class="entryarea">
-                    <input type="text" id="email" name="email" class="loginform__input pd-1" required>
+                    <input type="text" id="email" name="username" class="loginform__input pd-1" required>
                     <label for="email" class="loginform__placeholder">Correo</label>
                 </div>
                 <div class="entryarea">
