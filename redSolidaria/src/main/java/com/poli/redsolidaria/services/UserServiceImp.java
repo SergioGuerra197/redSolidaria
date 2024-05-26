@@ -1,3 +1,4 @@
+
 package com.poli.redsolidaria.services;
 
 import com.poli.redsolidaria.models.User;
@@ -14,11 +15,15 @@ import org.springframework.security.core.userdetails.User.UserBuilder;
 import java.util.Collections;
 import java.util.List;
 
-@AllArgsConstructor
+
 @Service
 public class UserServiceImp implements UserService{
 
     private final UserRepository userRepository;
+
+    public UserServiceImp(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public List<User> getAllUsers(){

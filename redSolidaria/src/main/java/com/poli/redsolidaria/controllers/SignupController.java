@@ -2,18 +2,22 @@ package com.poli.redsolidaria.controllers;
 
 import com.poli.redsolidaria.models.User;
 import com.poli.redsolidaria.services.UserService;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@AllArgsConstructor
 @RequestMapping("/signup")
 public class SignupController {
 
-    private UserService userService;
+    private final UserService userService;
+
+    @Autowired
+    public SignupController(UserService userService) {
+        this.userService = userService;
+    }
 
     @ModelAttribute("user")
     public User getUser() {
