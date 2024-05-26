@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +12,10 @@
     <link rel="stylesheet" th:href="@{/css/global_styles.css}">
 </head>
 <body>
-    <nav th:replace="fragments/header :: header"></nav>
+    <nav sec:authorize="authenticated" th:replace="fragments/header_in :: header_in"></nav>
+    <nav sec:authorize="!authenticated" th:replace="fragments/header :: header"></nav>
     <main layout:fragment="content"></main>
     <footer th:replace="fragments/footer :: footer"></footer>
 </body>
+<script th:src="@{/js/nav.js}"></script>
 </html>

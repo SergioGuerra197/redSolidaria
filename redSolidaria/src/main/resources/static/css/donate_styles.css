@@ -1,0 +1,133 @@
+/* --- DONATE VIEW */
+.donatetitle{
+    text-align: center;
+    margin: 3rem 30%;
+}
+
+.donateform{
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: var(--primary-light);
+}
+
+.donateform__submit{
+    grid-column: 2;
+    margin: 1rem 54% 0 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    border-radius: .5rem;
+    background-color: var(--secondary);
+    color: var(--white);
+    border: .2rem solid transparent;
+    transition: .5s ease;
+}
+
+.donateform__submit:hover{
+    cursor: pointer;
+    background-color: transparent;
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+.donateform__submit:hover .submitsvg{
+    stroke: var(--secondary);
+}
+
+.donateleft{
+    border-right: .1rem solid var(--gray);
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 50%;
+}
+
+.donateleft > h2{
+    width: 100%;
+    font-size: 1.5rem;
+    color: var(--gray);
+}
+
+.donateleft__input{
+    width: 100%;
+    border: none;
+    border-radius: .5rem;
+    outline: none;
+    transition: 0.1s ease;
+    background-color: var(--white);
+}
+
+
+.donateleft__input--placeholder{
+    left: 0;
+    color: var(--gray);
+    position: absolute;
+    pointer-events: none;
+    transition: 0.5s ease;
+    padding: 0 1rem;
+}
+
+.donateleft__input:valid ~ .donateleft__input--placeholder,
+.donateleft__input:focus ~ .donateleft__input--placeholder{
+    color: var(--white);
+    background-color: var(--secondary);
+    border-radius: .5rem;
+    transform: translateX(1rem) translateY(-.7rem);
+    font-size: 1rem;
+    padding: 0 1rem;
+}
+
+.donateright{
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 50%;
+}
+
+.donateright > h2{
+    width: 100%;
+    font-size: 1.5rem;
+    color: var(--gray);
+}
+
+.donateright__input{
+    width: 100%;
+    border: none;
+    border-radius: .5rem;
+    outline: none;
+    transition: 0.1s ease;
+    background-color: var(--white);
+}
+
+
+.donateright__input--placeholder{
+    left: 0;
+    color: var(--gray);
+    position: absolute;
+    pointer-events: none;
+    transition: 0.5s ease;
+    padding: 0 1rem;
+}
+
+.donateright__input:valid ~ .donateright__input--placeholder,
+.donateright__input:focus ~ .donateright__input--placeholder,
+input[type="file"]:invalid ~ .donateright__input--placeholder{
+    color: var(--white);
+    background-color: var(--secondary);
+    border-radius: .5rem;
+    transform: translateX(1rem) translateY(-.7rem);
+    font-size: 1rem;
+    padding: 0 1rem;
+}
+
+textarea{
+    font-size: 1.2rem;
+    font-family: "Montserrat", sans-serif;
+    resize: none;
+}

@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping("/donatives")
-public class DonativesController {
+@RequestMapping("/donate")
+public class DonateController {
     @GetMapping
-    public String donatives(Model model){
-        return "/pages/donatives";
+    public String donate(Model model){
+        model.addAttribute("mainTitle", "¡Empieza tu donacion!");
+        return "/pages/donate";
     }
 }
