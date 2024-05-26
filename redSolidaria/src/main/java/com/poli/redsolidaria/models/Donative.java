@@ -31,6 +31,7 @@ public class Donative {
     @Column(name = "date", nullable = false)
     private LocalDateTime donativeDate;
 
-    @Column(name = "state", nullable = false)
-    private String state;
+    @Column(name = "Available", nullable = false)
+    private Boolean Available;
+
 }
