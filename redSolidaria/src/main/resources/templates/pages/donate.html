@@ -9,7 +9,7 @@
 <body>
 <main layout:fragment="content">
     <h1 class="donatetitle ft-3">Contribuye donando objetos y comida en buen estado</h1>
-    <form action="" class="donateform pd-3">
+    <form th:action="@{/donate}" th:object="${donative}" class="donateform pd-3" method="POST">
         <div class="donateleft pd-3">
             <h2 class="no-mg">Empieza contando que vas a donar</h2>
             <div class="entryarea">
