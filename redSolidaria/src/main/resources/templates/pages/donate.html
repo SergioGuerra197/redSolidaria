@@ -13,11 +13,11 @@
         <div class="donateleft pd-3">
             <h2 class="no-mg">Empieza contando que vas a donar</h2>
             <div class="entryarea">
-                <input type="text" name="name" class="donateleft__input pd-1" id="name" required>
+                <input type="text" name="name" th:field="*{name}" class="donateleft__input pd-1" id="name" required>
                 <label for="name" class="donateleft__input--placeholder">Nombre</label>
             </div>
             <div class="entryarea">
-                <select name="type" class="donateleft__input pd-1" id="type" required>
+                <select name="type" th:field="*{type}" class="donateleft__input pd-1" id="type" required>
                     <option value="Asesoria">Asesoria</option>
                     <option value="Util escolar">Util escolar</option>
                     <option value="Alimento">Alimento</option>
@@ -27,27 +27,27 @@
             </div>
             <h2 class="no-mg">Indique una cantidad</h2>
             <div class="entryarea">
-                <input type="number" name="amount" class="donateleft__input pd-1" min="1" id="amount" required>
+                <input type="number" th:field="*{amount}" name="amount" class="donateleft__input pd-1" min="1" id="amount" required>
                 <label for="amount" class="donateleft__input--placeholder">Cantidad</label>
             </div>
         </div>
         <div class="donateright pd-3">
             <h2 class="no-mg">Sube una imagen de lo que donaras</h2>
             <div class="entryarea">
-                <input type="file" name="image" class="donateright__input pd-1" id="image" required>
+                <input type="file" th:field="*{image}" name="image" class="donateright__input pd-1" id="image" required>
                 <label for="image" class="donateright__input--placeholder">Imagen</label>
             </div>
             <h2 class="no-mg">Describe el objeto</h2>
             <div class="entryarea">
-                <select name="condition" class="donateleft__input pd-1" id="condition" required>
-                    <option value="Util escolar">Excelente</option>
-                    <option value="Alimento">Muy bueno</option>
-                    <option value="Varios">Bueno</option>
+                <select name="condition" th:field="*{donativeCondition}" class="donateleft__input pd-1" id="condition" required>
+                    <option value="Excelente">Excelente</option>
+                    <option value="Muy bueno">Muy bueno</option>
+                    <option value="Bueno">Bueno</option>
                 </select>
                 <label for="condition" class="donateleft__input--placeholder">Condicion</label>
             </div>
             <div class="entryarea">
-                <textarea name="description" class="donateright__input pd-1" id="description"></textarea>
+                <textarea name="description" th:field="*{description}" class="donateright__input pd-1" id="description"></textarea>
                 <label for="description" class="donateright__input--placeholder">Descripción</label>
             </div>
         </div>

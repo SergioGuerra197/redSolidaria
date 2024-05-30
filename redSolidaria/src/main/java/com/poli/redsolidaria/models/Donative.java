@@ -15,9 +15,8 @@ public class Donative {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne //Muchos donativos pertenecen a un solo usuario
     @JoinColumn(name = "user_id", nullable = false)
-    private User idUser;
+    private String idUser;
 
     @Column(name = "name", length = 100, nullable = false)
     private String name;
@@ -34,13 +33,13 @@ public class Donative {
     @Column(name = "description", length = 300, nullable = false)
     private String description;
 
-    @Column(name = "condition", length = 100, nullable = false)
-    private String condition;
+    @Column(name = "donativeCondition", length = 100, nullable = false)
+    private String donativeCondition;
 
     @Column(name = "date", nullable = false)
     private LocalDateTime donativeDate;
 
     @Column(name = "Available", nullable = false)
-    private Boolean Available;
+    private String available;
 
 }
