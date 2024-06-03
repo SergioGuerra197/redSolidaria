@@ -14,7 +14,7 @@
             <div class="submenu pd-2">
                 <div class="user--info">
                     <img src="../img/login_icon.png" alt="User image">
-                    <h3 th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h3>
+                    <h3 th:inline="text">Hello <span th:text="${username}">thymeleaf</span>!</h3>
                 </div>
                 <hr>
                 <a href="#" class="submenu__link txt-deco-non">

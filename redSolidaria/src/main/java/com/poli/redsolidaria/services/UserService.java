@@ -10,4 +10,6 @@ public interface UserService {
     void createUser(User user);
 
     User findUserByEmail(String email);
+
+    void updateUser(User user);
 }
