@@ -34,6 +34,7 @@
                     )
                     .formLogin((form) -> form
                             .loginPage("/login")
+                            .defaultSuccessUrl("/")
                             .permitAll()
                     )
                     .logout(LogoutConfigurer::permitAll);

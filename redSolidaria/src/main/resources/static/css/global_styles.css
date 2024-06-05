@@ -106,7 +106,7 @@ body {
     color: var(--white);
     top: 100%;
     right: 1%;
-    width: 32rem;
+    width: 35rem;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s;

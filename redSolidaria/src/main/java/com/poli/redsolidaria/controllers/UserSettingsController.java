@@ -3,6 +3,7 @@ package com.poli.redsolidaria.controllers;
 import com.poli.redsolidaria.models.User;
 import com.poli.redsolidaria.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -43,5 +44,11 @@ public class UserSettingsController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = authentication.getName();
         return userService.findUserByEmail(email);
+    }
+
+    @GetMapping("/internal/name")
+    public ResponseEntity<String> getUserName() {
+        String name = getUser().getName();
+        return ResponseEntity.ok(name);
     }
 }
