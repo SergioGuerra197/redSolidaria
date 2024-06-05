@@ -36,6 +36,7 @@ public class SignupController {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(newUser.getPassword());
         newUser.setPassword(encodedPassword);
+        newUser.setNotification("0");
         userService.createUser(newUser);
         return "redirect:/signup?success";
     }

@@ -4,6 +4,7 @@
     --primary-dark: #C2C8B2;
     --secondary: #708967;
     --black: #000;
+    --alt-black: #2A3C29;
     --white: #FFF;
     --alpha-white: #FFFFFF80;
     --gray: #9C9C9C;
@@ -236,6 +237,10 @@ button[type="submit"]{
 
 .ft-0 {
     font-size: 1rem;
+}
+
+.ft-05 {
+    font-size: 1.3rem;
 }
 
 .ft-1 {

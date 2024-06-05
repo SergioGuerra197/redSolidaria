@@ -1,0 +1,115 @@
+/* DONATIONS VIEW */
+.navtype{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    background-color: var(--primary-light);
+}
+
+.navtype__link{
+    text-align: center;
+    width: 8%;
+    padding: 1rem;
+    border-radius: .5rem;
+    transition: all .3s;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--alt-black);
+}
+
+.navtype__link:hover,
+.navtype__link--active{
+    color: var(--white);
+    background-color: var(--secondary);
+}
+
+.gridlist{
+    margin: 2rem 20%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.product{
+    position: relative;
+    background-color: var(--secondary);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+
+.product__details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 5%;
+}
+
+.product__details > svg{
+    transition: .5s all;
+}
+
+.product__details > svg:hover{
+    width: 28px;
+    height: 28px;
+
+}
+
+.product__image{
+    margin: 0 auto;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    background-image: url(../img/teach.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20rem;
+    height: 20rem;
+}
+
+.product__title{
+    display: flex;
+    color: var(--white);
+}
+
+.product__owner{
+    color: var(--white);
+    padding-bottom: 1rem;
+    border-bottom: .1rem solid var(--white);
+}
+
+.product__info{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.product__info > p{
+    color: var(--white);
+    grid-column: 1 / 2;
+}
+
+.product__info > button {
+    font-weight: 700;
+    color: var(--alt-black);
+    transition: .5s all;
+    cursor: pointer;
+    padding: 1rem 0;
+    border: .2rem solid var(--primary-light);
+    border-radius: .5rem;
+    margin: 0 8%;
+    grid-column: 2 / 3;
+    grid-row: 1 / span 2;
+}
+
+.product__info > button:hover{
+    background-color: transparent;
+    color: var(--primary-light);
+    font-size: 1.7rem;
+}

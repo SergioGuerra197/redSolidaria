@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <body>
     <nav class="navbar bg-p-l pd-2" th:fragment="header_in">
         <a th:href="@{/}" class="navbar__icon"></a>
@@ -29,7 +28,7 @@
                     <p class="no-mg">DashBoard</p>
                     <span>></span>
                 </a>
-                <a href="#" class="submenu__link txt-deco-non">
+                <a th:href="@{/settings}" class="submenu__link txt-deco-non">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings-2" width="28"
                          height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFF" fill="none"
                          stroke-linecap="round" stroke-linejoin="round">

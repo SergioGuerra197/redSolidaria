@@ -29,8 +29,11 @@ public class User {
     private String password;
 
     @Column(name = "contact_number", length = 20, nullable = false)
-    private String contactNumber;
+    private Long contactNumber;
 
     @Column(name = "role", length = 100, nullable = false)
     private String role;
+
+    @Column(name = "notification", length = 100, nullable = false)
+    private String notification;
 }

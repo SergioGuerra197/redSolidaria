@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/index}">
+<head>
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/settings_styles.css}">
+</head>
+<body>
+<main layout:fragment="content">
+    <h1 class="usersettitle ft-2">Actualiza tu información y otras preferencias</h1>
+    <form th:action="@{/settings}" th:object="${user}" class="usersetform pd-1" method="post">
+        <div class="usersetleft pd-3">
+            <h2 class="no-mg">Información del usuario</h2>
+            <div class="entryarea">
+                <input type="text" th:field="*{id}" id="id" class="usersetleft__input pd-1 disabled"  th:value="*{id}" required readonly>
+                <label for="id" class="usersetleft__input--placeholder fixed">Id</label>
+            </div>
+            <div class="entryarea">
+                <input type="text" th:field="*{role}" id="role" class="usersetleft__input pd-1 disabled" th:value="*{role}" required readonly>
+                <label for="role" class="usersetleft__input--placeholder fixed">Role</label>
+            </div>
+            <div class="entryarea">
+                <input type="text" th:field="*{name}" id="name" class="usersetleft__input pd-1" th:value="*{name}" required>
+                <label for="name" class="usersetleft__input--placeholder">Nombre</label>
+            </div>
+            <h2 class="no-mg">¿Desearias recibir notificaciones cada que un elemento sea publicado?</h2>
+            <div class="entryarea--notification">
+                <label for="notification--yes">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="18"
+                         height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 12l5 5l10 -10" />
+                    </svg>
+                    <input type="radio" th:field="*{notification}" name="notification" id="notification--yes" value="1" th:checked="*{notification} ? '1'">
+                    Si
+                </label>
+                <label for="notification--no">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="18"
+                         height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 12l5 5l10 -10" />
+                    </svg>
+                    <input type="radio" th:field="*{notification}" name="notification" id="notification--no" value="0" th:checked="*{notification} ? '0'">
+                    No
+                </label>
+            </div>
+        </div>
+        <div class="usersetright pd-3">
+            <h2 class="no-mg">Cambia tu contraseña</h2>
+            <div class="entryarea">
+                <input type="password" id="actual_password" class="usersetright__input pd-1" >
+                <label for="actual_password" class="usersetright__input--placeholder">Contraseña actual</label>
+            </div>
+            <div class="passflex">
+                <div class="entryarea">
+                    <input type="password" id="first_password" class="usersetright__input pd-1" >
+                    <label for="first_password" class="usersetright__input--placeholder">Nueva contraseña</label>
+                </div>
+                <div class="entryarea">
+                    <input type="password" id="password" class="usersetright__input pd-1" >
+                    <label for="password" class="usersetright__input--placeholder">Confirmar contraseña</label>
+                </div>
+            </div>
+            <h2 class="no-mg">Información de contacto</h2>
+            <div class="entryarea">
+                <input type="text" th:field="*{email}" id="email" class="usersetleft__input pd-1 disabled" th:value="*{email}" required readonly>
+                <label for="email" class="usersetleft__input--placeholder fixed">Email</label>
+            </div>
+            <div class="entryarea">
+                <input type="text" th:field="*{contactNumber}" id="contact_number" class="usersetleft__input pd-1" th:value="*{contactNumber}" required>
+                <label for="contact_number" class="usersetleft__input--placeholder">Numero de contacto</label>
+            </div>
+            <button type="submit" class="usersetform__submit pd-1 ft-1">
+                Guardar
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-upload" width="28"
+                     height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                    <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                    <path d="M12 11v6" />
+                    <path d="M9.5 13.5l2.5 -2.5l2.5 2.5" />
+                </svg>
+            </button>
+        </div>
+    </form>
+</main>
+</body>
+</html>

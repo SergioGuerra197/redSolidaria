@@ -1,0 +1,195 @@
+/* --- USER SETTINGS VIEW */
+.usersettitle{
+    text-align: center;
+    margin: 3rem 30%;
+}
+
+.usersetform{
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: var(--primary-light);
+}
+
+.usersetform__submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    border-radius: .5rem;
+    background-color: var(--secondary);
+    color: var(--white);
+    border: .2rem solid transparent;
+    transition: .5s ease;
+}
+
+.usersetform__submit:hover{
+    cursor: pointer;
+    background-color: transparent;
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+.usersetform__submit:hover .submitsvg{
+    stroke: var(--secondary);
+}
+
+.usersetleft{
+    border-right: .1rem solid var(--gray);
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 50%;
+}
+
+.usersetleft > h2{
+    width: 100%;
+    font-size: 1.5rem;
+    color: var(--gray);
+}
+
+.usersetleft__input{
+    width: 100%;
+    border: none;
+    border-radius: .5rem;
+    outline: none;
+    transition: 0.1s ease;
+    background-color: var(--white);
+}
+
+
+.usersetleft__input--placeholder{
+    left: 0;
+    color: var(--gray);
+    position: absolute;
+    pointer-events: none;
+    transition: 0.5s ease;
+    padding: 0 1rem;
+    font-size: 1.3rem;
+}
+
+.usersetleft__input:valid ~ .usersetleft__input--placeholder,
+.usersetleft__input:focus ~ .usersetleft__input--placeholder,
+.fixed{
+    color: var(--white);
+    background-color: var(--secondary);
+    border-radius: .5rem;
+    transform: translateX(1rem) translateY(-.7rem);
+    font-size: 1rem;
+    padding: 0 1rem;
+}
+
+.disabled{
+    background-color: var(--primary-dark);
+}
+
+.usersetright{
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-direction: column;
+    margin-right: 50%;
+}
+
+.usersetright > h2{
+    width: 100%;
+    font-size: 1.5rem;
+    color: var(--gray);
+}
+
+.passflex{
+    display: flex;
+    gap: 1rem;
+}
+
+.usersetright__input{
+    width: 100%;
+    border: none;
+    border-radius: .5rem;
+    outline: none;
+    transition: 0.1s ease;
+    background-color: var(--white);
+}
+
+
+.usersetright__input--placeholder{
+    left: 0;
+    color: var(--gray);
+    position: absolute;
+    pointer-events: none;
+    transition: 0.5s ease;
+    padding: 0 1rem;
+    font-size: 1.3rem;
+}
+
+.usersetright__input:valid ~ .usersetright__input--placeholder,
+.usersetright__input:focus ~ .usersetright__input--placeholder{
+    color: var(--white);
+    background-color: var(--secondary);
+    border-radius: .5rem;
+    transform: translateX(1rem) translateY(-.7rem);
+    font-size: 1rem;
+    padding: 0 1rem;
+}
+
+textarea{
+    font-size: 1.2rem;
+    font-family: "Montserrat", sans-serif;
+    resize: none;
+}
+
+.entryarea--notification{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.entryarea--notification > label {
+    user-select: none;
+    cursor: pointer;
+}
+
+.entryarea--notification label > svg {
+    position: absolute;
+    margin: .3rem 0 .1rem .4rem;
+    stroke: var(--secondary);
+}
+
+input[type="radio"]{
+    cursor: pointer;
+    visibility: hidden;
+}
+
+input[type="radio"]::after{
+    transition: all .3s;
+    width: 15px;
+    height: 15px;
+    border-radius: .6rem;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: var(--primary-light);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid var(--secondary);
+    padding: .8rem;
+}
+
+input[type="radio"]:checked::after{
+    width: 15px;
+    height: 15px;
+    border-radius: .6rem;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: transparent;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid var(--secondary);
+    padding: .8rem;
+}
