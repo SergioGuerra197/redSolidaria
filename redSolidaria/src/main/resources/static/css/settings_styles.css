@@ -81,10 +81,6 @@
     padding: 0 1rem;
 }
 
-.disabled{
-    background-color: var(--primary-dark);
-}
-
 .usersetright{
     gap: 2rem;
     display: flex;
@@ -126,7 +122,8 @@
 }
 
 .usersetright__input:valid ~ .usersetright__input--placeholder,
-.usersetright__input:focus ~ .usersetright__input--placeholder{
+.usersetright__input:focus ~ .usersetright__input--placeholder,
+.fixed{
     color: var(--white);
     background-color: var(--secondary);
     border-radius: .5rem;
@@ -192,4 +189,8 @@ input[type="radio"]:checked::after{
     visibility: visible;
     border: 2px solid var(--secondary);
     padding: .8rem;
+}
+
+.disabled{
+    background-color: var(--primary-dark);
 }
