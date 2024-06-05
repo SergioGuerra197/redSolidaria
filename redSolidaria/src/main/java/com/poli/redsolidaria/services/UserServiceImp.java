@@ -3,13 +3,13 @@ package com.poli.redsolidaria.services;
 
 import com.poli.redsolidaria.models.User;
 import com.poli.redsolidaria.repositories.UserRepository;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-
 import java.util.List;
-
 
 @Service
 public class UserServiceImp implements UserService{
@@ -39,7 +39,17 @@ public class UserServiceImp implements UserService{
 
     @Override
     public void updateUser(User user){
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        System.out.println(user.toString());
+        System.out.println("Son diferentes?: " + !(user.getPassword().equals(getUser().getPassword())));
+        if (!(user.getPassword().equals(getUser().getPassword())))
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+
         userRepository.save(user);
+    }
+
+    private User getUser(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = authentication.getName();
+        return this.findUserByEmail(email);
     }
 }

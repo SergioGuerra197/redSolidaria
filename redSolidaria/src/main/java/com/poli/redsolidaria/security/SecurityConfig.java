@@ -8,6 +8,7 @@
     import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
     import org.springframework.security.config.annotation.web.builders.HttpSecurity;
     import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+    import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
     import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
     import org.springframework.security.crypto.password.PasswordEncoder;
     import org.springframework.security.web.SecurityFilterChain;
@@ -28,14 +29,15 @@
         public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
             http
                     .authorizeHttpRequests((requests) -> requests
-                            .requestMatchers("/","/signup", "/img/**", "/home", "/css/**", "/icons/**,", "/js/**", "/static/**","/layer/**").permitAll()
+                            .requestMatchers("/","/signup", "/img/**", "/home", "/css/**", "/icons/**,", "/js/**", "/static/**","/layer/**", "/templates/fragments/header_in").permitAll()
                             .anyRequest().authenticated()
                     )
                     .formLogin((form) -> form
                             .loginPage("/login")
                             .permitAll()
                     )
-                    .logout((logout) -> logout.permitAll());
+                    .logout(LogoutConfigurer::permitAll);
+                    //.logout((logout) -> logout.permitAll());
             return http.build();
         }
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <body>
     <nav class="navbar bg-p-l pd-2" th:fragment="header_in">
         <a th:href="@{/}" class="navbar__icon"></a>
@@ -13,7 +14,7 @@
             <div class="submenu pd-2">
                 <div class="user--info">
                     <img src="../img/login_icon.png" alt="User image">
-                    <h3 th:inline="text">Hello <span th:text="${username}">thymeleaf</span>!</h3>
+                    <h3 th:inline="text">Hello <span th:text="${name}">thymeleaf</span>!</h3>
                 </div>
                 <hr>
                 <a href="#" class="submenu__link txt-deco-non">

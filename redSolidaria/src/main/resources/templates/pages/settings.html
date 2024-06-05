@@ -51,19 +51,20 @@
         <div class="usersetright pd-3">
             <h2 class="no-mg">Cambia tu contraseña</h2>
             <div class="entryarea">
-                <input type="password" id="actual_password" class="usersetright__input pd-1" >
+                <input type="password" id="actual_password" class="usersetright__input pd-1" required>
                 <label for="actual_password" class="usersetright__input--placeholder">Contraseña actual</label>
             </div>
             <div class="passflex">
                 <div class="entryarea">
-                    <input type="password" id="first_password" class="usersetright__input pd-1" >
+                    <input type="password" id="first_password" class="usersetright__input pd-1" required>
                     <label for="first_password" class="usersetright__input--placeholder">Nueva contraseña</label>
                 </div>
                 <div class="entryarea">
-                    <input type="password" id="password" class="usersetright__input pd-1" >
+                    <input type="password" id="password" class="usersetright__input pd-1" required>
                     <label for="password" class="usersetright__input--placeholder">Confirmar contraseña</label>
                 </div>
             </div>
+            <p class="ft-0 no-mg" id="parrafoPrueba" style="display: none">Las contraseñas no coinciden</p>
             <h2 class="no-mg">Información de contacto</h2>
             <div class="entryarea">
                 <input type="text" th:field="*{email}" id="email" class="usersetleft__input pd-1 disabled" th:value="*{email}" required readonly>

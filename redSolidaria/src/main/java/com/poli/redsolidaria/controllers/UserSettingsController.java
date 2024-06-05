@@ -32,9 +32,9 @@ public class UserSettingsController {
     @PostMapping
     public String updateUser(@ModelAttribute("user")User updateUser_){
         System.out.println(updateUser_.toString());
-        if (updateUser_.getPassword() == null) {
+        if (updateUser_.getPassword() == null)
             updateUser_.setPassword(getUser().getPassword());
-        }
+
         userService.updateUser(updateUser_);
         return "redirect:/";
     }
