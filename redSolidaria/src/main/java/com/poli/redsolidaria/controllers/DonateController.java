@@ -40,7 +40,15 @@ public class DonateController {
         User user = userService.findUserByEmail(email);
         newDonative.setIdUser(String.valueOf(user.getId()));
         newDonative.setDonativeDate(LocalDateTime.now());
-        newDonative.setAvailable("Disponible");
+        newDonative.setAvailable(Boolean.TRUE);
+        if (newDonative.getType()=="Alimento")
+            newDonative.setImage("");
+        else if(newDonative.getType()=="Util escolar")
+            newDonative.setImage("");
+        else if(newDonative.getType()=="Asesoria")
+            newDonative.setImage("");
+        else if(newDonative.getType()=="Varios")
+            newDonative.setImage("");
         donateService.createDonative(newDonative);
         return "redirect:/signup";
     }

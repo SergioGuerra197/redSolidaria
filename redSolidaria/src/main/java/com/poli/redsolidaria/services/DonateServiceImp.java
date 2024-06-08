@@ -9,7 +9,9 @@ public class DonateServiceImp implements DonateService{
 
     private final DonateRepository donateRepository;
 
-    public DonateServiceImp(DonateRepository donateRepository){this.donateRepository = donateRepository;}
+    public DonateServiceImp(DonateRepository donateRepository){
+        this.donateRepository = donateRepository;
+    }
     @Override
     public void createDonative(Donative donative){
         donateRepository.save(donative);
