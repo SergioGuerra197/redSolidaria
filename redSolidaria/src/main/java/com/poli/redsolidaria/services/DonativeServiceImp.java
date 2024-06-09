@@ -2,14 +2,13 @@ package com.poli.redsolidaria.services;
 
 import com.poli.redsolidaria.models.Donative;
 import com.poli.redsolidaria.models.User;
-import com.poli.redsolidaria.repositories.DonateRepository;
 import com.poli.redsolidaria.repositories.DonativeRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 public class DonativeServiceImp implements DonativeService{
@@ -27,7 +26,10 @@ public class DonativeServiceImp implements DonativeService{
         return donativeRepository.findAll();
     }
 
-   @Override
+    @Override
+    public Optional<Donative> findById(Long id){return donativeRepository.findById(id);}
+
+    @Override
     public List<Donative> findByType(String type){
         return donativeRepository.findByTypeAndAvailableTrue(type);
    }

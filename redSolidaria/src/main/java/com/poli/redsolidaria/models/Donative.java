@@ -4,7 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "donatives")
 @Data
@@ -37,7 +38,7 @@ public class Donative {
     private String donativeCondition;
 
     @Column(name = "date", nullable = false)
-    private LocalDateTime donativeDate;
+    private LocalDate donativeDate;
 
     @Column(name = "available", nullable = false)
     private Boolean available;

@@ -8,9 +8,10 @@
 </head>
 <body>
     <main layout:fragment="content" th:object="${donatives}">
-        <h1 class="usersettitle ft-2">Elije lo que mejor se acomode a tus necesidades y recuerda darle las gracias al
+        <h1 class="donativestitle ft-2">Elije lo que mejor se acomode a tus necesidades y recuerda darle las gracias al
             donador</h1>
         <div class="navtype ft-1">
+            <a th:href="@{/donatives}" class="navtype__link" id="all_link">Todos</a>
             <a th:href="@{/donatives/filter(type='Asesoria')}" class="navtype__link" id="teach_link">Asesoria</a>
             <a th:href="@{/donatives/filter(type='Util escolar')}" class="navtype__link" id="supplies_link">Util Escolar</a>
             <a th:href="@{/donatives/filter(type='Alimento')}" class="navtype__link" id="food_link">Alimento</a>
@@ -18,7 +19,7 @@
         </div>
         <div class="gridlist">
             <div class="product" th:each="donative : ${donatives}">
-                <button type="button" class="product__details" onclick="openModal()">
+                <a th:href="@{/donatives/(id=${donative.id})}" type="button" class="product__details">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="26"
                          height="26" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ECF3DB" fill="none"
                          stroke-linecap="round" stroke-linejoin="round">
@@ -27,13 +28,13 @@
                         <path d="M12 9h.01" />
                         <path d="M11 12h1v4h1" />
                     </svg>
-                </button>
+                </a>
                 <div class="product__image" th:style="'background-image: url(../img/' + ${donative.image}+')'"></div>
                 <h2 class="product__title m-t-1 no-mg" th:text="${donative.name}"></h2>
-                <p class="product__owner no-mg ft-1 m-b-1" th:text="'Donador: ' + ${donative.idUser}"></p>
-                <div class="product__info">
-                    <p class="no-mg ft-1" th:text="'Cantidad: ' + ${donative.amount}"></p>
-                    <p class="no-mg ft-1" th:text="'Estado: ' + ${donative.donativeCondition}"></p>
+                <div class="product__info m-t-1">
+                    <p class="no-mg ft-1" th:if="${donative.type == 'Asesoria'}" th:text="'Duración: ' + ${donative.amount} + ' horas'"></p>
+                    <p class="no-mg ft-1" th:unless="${donative.type == 'Asesoria'}" th:text="'Cantidad: ' + ${donative.amount}"></p>
+                    <p class="no-mg ft-1" th:if="${donative.donativeCondition != ''}" th:text="'Estado: ' + ${donative.donativeCondition}"></p>
                     <button class="ft-1" type="button">Contactar</button>
                 </div>
             </div>
@@ -50,24 +51,25 @@
                     </svg>
                 </button>
                 <div class="field">
-                    <p><b>Nombre: </b>Asesoria A&G2</p>
+                    <p id="name"></p>
                 </div>
                 <div class="field">
-                    <p><b>Donador: </b>Simón Sánchez</p>
+                    <p id="idUser"></p>
                 </div>
                 <div class="field">
-                    <p><b>Tipo: </b>Asesoria</p>
+                    <p id="type"></p>
+                </div>
+                <div class="field field--condition">
+                    <p id="condition"></p>
                 </div>
                 <div class="field">
-                    <p><b>Duración: </b>2 horas</p>
+                    <p id="amount"></p>
                 </div>
                 <div class="field">
-                    <p><b>Fecha de publicación: </b>02-06-2024</p>
+                    <p id="date"></p>
                 </div>
                 <div class="field">
-                    <p><b>Descripción: </b>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem iure ad
-                        aspernatur, est adipisci dolorem. Aperiam labore reiciendis adipisci odit consequatur eius velit
-                        nesciunt, quam architecto qui perferendis ipsa tenetur.</p>
+                    <p id="description"></p>
                 </div>
             </div>
         </div>

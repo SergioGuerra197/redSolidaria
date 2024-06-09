@@ -6,7 +6,6 @@ import com.poli.redsolidaria.services.DonateService;
 import com.poli.redsolidaria.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Controller
 @AllArgsConstructor
@@ -40,7 +37,7 @@ public class DonateController {
         String email = authentication.getName();
         User user = userService.findUserByEmail(email);
         newDonative.setIdUser(String.valueOf(user.getId()));
-        newDonative.setDonativeDate(LocalDateTime.now());
+        newDonative.setDonativeDate(LocalDate.now());
         newDonative.setAvailable(Boolean.TRUE);
         switch (newDonative.getType()) {
             case "Alimento" -> newDonative.setImage("food.png");

@@ -1,4 +1,9 @@
 /* DONATIONS VIEW */
+.donativestitle{
+    text-align: center;
+    margin: 3rem 30%;
+}
+
 .navtype{
     padding: 1rem;
     display: flex;
@@ -11,14 +16,17 @@
     text-align: center;
     width: 8%;
     padding: 1rem;
+    border: solid .2rem transparent;
     border-radius: .5rem;
     transition: all .3s;
     font-weight: 700;
     text-decoration: none;
     color: var(--alt-black);
 }
+.navtype__link:hover{
+    border: solid .2rem var(--secondary);
+}
 
-.navtype__link:hover,
 .navtype__link--active{
     color: var(--white);
     background-color: var(--secondary);
@@ -55,9 +63,7 @@
 }
 
 .product__details > svg:hover{
-    width: 28px;
-    height: 28px;
-
+    scale: 1.2;
 }
 
 .product__image{
@@ -73,10 +79,6 @@
 
 .product__title{
     display: flex;
-    color: var(--white);
-}
-
-.product__owner{
     color: var(--white);
     padding-bottom: 1rem;
     border-bottom: .1rem solid var(--white);
@@ -114,7 +116,7 @@
 }
 
 .modal{
-    transition: all .5s;
+    transition: all .3s;
     opacity: 0;
     z-index: -1;
     color: var(--alt-black);
