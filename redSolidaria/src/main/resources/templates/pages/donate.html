@@ -7,64 +7,67 @@
     <link rel="stylesheet" th:href="@{/css/donate_styles.css}">
 </head>
 <body>
-<main layout:fragment="content">
-    <h1 class="donatetitle ft-3">Contribuye donando objetos y comida en buen estado</h1>
-    <form th:action="@{/donate}" th:object="${donative}" class="donateform pd-3" method="POST">
-        <div class="donateleft pd-3">
-            <h2 class="no-mg">Empieza contando que vas a donar</h2>
-            <div class="entryarea">
-                <input type="text" name="name" th:field="*{name}" class="donateleft__input pd-1" id="name" required>
-                <label for="name" class="donateleft__input--placeholder">Nombre</label>
+    <main layout:fragment="content">
+        <h2 class="successMessage ft-1 pd-2" th:if="${param.success}">
+            Exito al publicar donacion!
+        </h2>
+        <h1 class="donatetitle ft-3">Contribuye donando objetos y comida en buen estado</h1>
+        <form th:action="@{/donate}" th:object="${donative}" class="donateform pd-3" method="POST">
+            <div class="donateleft pd-3">
+                <h2 class="no-mg">Empieza contando que vas a donar</h2>
+                <div class="entryarea">
+                    <input type="text" name="name" th:field="*{name}" class="donateleft__input pd-1" id="name" required>
+                    <label for="name" class="donateleft__input--placeholder">Nombre</label>
+                </div>
+                <div class="entryarea">
+                    <select name="type" th:field="*{type}" class="donateleft__input pd-1" id="type" required>
+                        <option value="Asesoria">Asesoria</option>
+                        <option value="Util escolar">Util escolar</option>
+                        <option value="Alimento">Alimento</option>
+                        <option value="Varios">Varios</option>
+                    </select>
+                    <label for="type" class="donateleft__input--placeholder">Tipo</label>
+                </div>
             </div>
-            <div class="entryarea">
-                <select name="type" th:field="*{type}" class="donateleft__input pd-1" id="type" required>
-                    <option value="Asesoria">Asesoria</option>
-                    <option value="Util escolar">Util escolar</option>
-                    <option value="Alimento">Alimento</option>
-                    <option value="Varios">Varios</option>
-                </select>
-                <label for="type" class="donateleft__input--placeholder">Tipo</label>
+            <div class="donateright pd-3">
+                <!--<h2 class="no-mg">Sube una imagen de lo que donaras</h2>
+                <div class="entryarea">
+                    <input type="file" th:field="*{image}" name="image" class="donateright__input pd-1" id="image" required>
+                    <label for="image" class="donateright__input--placeholder">Imagen</label>
+                </div>-->
+                <h2 class="no-mg" id="amount_title">Indique una duración</h2>
+                <div class="entryarea entryarea--amount">
+                    <input type="number" th:field="*{amount}" id="amount" name="amount" class="donateleft__input pd-1" min="1" max="4" required>
+                    <label for="amount" id="amount_label" class="donateleft__input--placeholder">Horas</label>
+                </div>
+                <h2 class="no-mg">Describe el objeto</h2>
+                <div class="entryarea" id="condition_area" style="display: none">
+                    <select name="condition" th:field="*{donativeCondition}" class="donateleft__input pd-1" id="condition" required>
+                        <option value="Excelente">Excelente</option>
+                        <option value="Muy bueno">Muy bueno</option>
+                        <option value="Bueno">Bueno</option>
+                    </select>
+                    <label for="condition" class="donateleft__input--placeholder">Condicion</label>
+                </div>
+                <div class="entryarea">
+                    <textarea name="description" th:field="*{description}" class="donateright__input pd-1" id="description"></textarea>
+                    <label for="description" class="donateright__input--placeholder">Descripción</label>
+                </div>
             </div>
-            <h2 class="no-mg">Indique una cantidad</h2>
-            <div class="entryarea">
-                <input type="number" th:field="*{amount}" name="amount" class="donateleft__input pd-1" min="1" id="amount" required>
-                <label for="amount" class="donateleft__input--placeholder">Cantidad</label>
-            </div>
-        </div>
-        <div class="donateright pd-3">
-            <h2 class="no-mg">Sube una imagen de lo que donaras</h2>
-            <div class="entryarea">
-                <input type="file" th:field="*{image}" name="image" class="donateright__input pd-1" id="image" required>
-                <label for="image" class="donateright__input--placeholder">Imagen</label>
-            </div>
-            <h2 class="no-mg">Describe el objeto</h2>
-            <div class="entryarea">
-                <select name="condition" th:field="*{donativeCondition}" class="donateleft__input pd-1" id="condition" required>
-                    <option value="Excelente">Excelente</option>
-                    <option value="Muy bueno">Muy bueno</option>
-                    <option value="Bueno">Bueno</option>
-                </select>
-                <label for="condition" class="donateleft__input--placeholder">Condicion</label>
-            </div>
-            <div class="entryarea">
-                <textarea name="description" th:field="*{description}" class="donateright__input pd-1" id="description"></textarea>
-                <label for="description" class="donateright__input--placeholder">Descripción</label>
-            </div>
-        </div>
-        <button type="submit" class="donateform__submit pd-1 ft-1">
-            Publicar
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart-handshake submitsvg" width="28"
-                 height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFF" fill="none"
-                 stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                <path
-                        d="M12 6l-3.293 3.293a1 1 0 0 0 0 1.414l.543 .543c.69 .69 1.81 .69 2.5 0l1 -1a3.182 3.182 0 0 1 4.5 0l2.25 2.25" />
-                <path d="M12.5 15.5l2 2" />
-                <path d="M15 13l2 2" />
-            </svg>
-        </button>
-    </form>
-</main>
+            <button type="submit" class="donateform__submit pd-1 ft-1">
+                Publicar
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart-handshake submitsvg" width="28"
+                     height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFF" fill="none"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                    <path
+                            d="M12 6l-3.293 3.293a1 1 0 0 0 0 1.414l.543 .543c.69 .69 1.81 .69 2.5 0l1 -1a3.182 3.182 0 0 1 4.5 0l2.25 2.25" />
+                    <path d="M12.5 15.5l2 2" />
+                    <path d="M15 13l2 2" />
+                </svg>
+            </button>
+        </form>
+    </main>
 </body>
 </html>

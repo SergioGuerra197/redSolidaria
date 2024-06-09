@@ -49,6 +49,15 @@
             </div>
         </div>
         <div class="usersetright pd-3">
+            <h2 class="no-mg">Información de contacto</h2>
+            <div class="entryarea">
+                <input type="text" th:field="*{email}" id="email_settings" class="usersetleft__input pd-1 disabled" th:value="*{email}" required readonly>
+                <label for="email_settings" class="usersetleft__input--placeholder fixed">Email</label>
+            </div>
+            <div class="entryarea">
+                <input type="text" th:field="*{contactNumber}" id="contact_number" class="usersetleft__input pd-1" th:value="*{contactNumber}" required>
+                <label for="contact_number" class="usersetleft__input--placeholder">Numero de contacto</label>
+            </div>
             <h2 class="no-mg">Cambia tu contraseña</h2>
             <div class="entryarea">
                 <input type="password" id="actual_password" class="usersetright__input pd-1" required>
@@ -64,17 +73,7 @@
                     <label for="password" class="usersetright__input--placeholder fixed label__pass">Confirmar contraseña</label>
                 </div>
             </div>
-<!--            <p class="ft-0 no-mg" id="parrafoPrueba" style="display: none">Las contraseñas no coinciden</p>-->
-            <h2 class="no-mg">Información de contacto</h2>
-            <div class="entryarea">
-                <input type="text" th:field="*{email}" id="email" class="usersetleft__input pd-1 disabled" th:value="*{email}" required readonly>
-                <label for="email" class="usersetleft__input--placeholder fixed">Email</label>
-            </div>
-            <div class="entryarea">
-                <input type="text" th:field="*{contactNumber}" id="contact_number" class="usersetleft__input pd-1" th:value="*{contactNumber}" required>
-                <label for="contact_number" class="usersetleft__input--placeholder">Numero de contacto</label>
-            </div>
-            <button type="submit" class="usersetform__submit pd-1 ft-1" onclick="validatePassField()">
+            <button type="submit" class="usersetform__submit pd-1 ft-1" onclick="validatePassField()" id="btnsubmit">
                 Guardar
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-upload" width="28"
                      height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"

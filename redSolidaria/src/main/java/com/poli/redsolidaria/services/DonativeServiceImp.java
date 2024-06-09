@@ -16,23 +16,27 @@ public class DonativeServiceImp implements DonativeService{
     }
 
     @Override
-    public List<Donative> getAviableFoodDonations() {
-        System.out.println("Llegó");
+    public List<Donative> getAvailableDonations(){
+        return donativeRepository.findAll();
+    }
+
+    @Override
+    public List<Donative> getAvailableFoodDonations() {
         return donativeRepository.findByTypeAndAvailableTrue("Alimento");
     }
 
     @Override
-    public List<Donative> getAviableStudyDonatios() {
-        return null;
+    public List<Donative> getAvailableSuppliesDonations() {
+        return donativeRepository.findByTypeAndAvailableTrue("Util escolar");
     }
 
     @Override
-    public List<Donative> getAviableTimeDonations() {
-        return null;
+    public List<Donative> getAvailableTimeDonations() {
+        return donativeRepository.findByTypeAndAvailableTrue("Asesoria");
     }
 
     @Override
-    public List<Donative> getAviableOthersDonations() {
-        return null;
+    public List<Donative> getAvailableOtherDonations() {
+        return donativeRepository.findByTypeAndAvailableTrue("Varios");
     }
 }

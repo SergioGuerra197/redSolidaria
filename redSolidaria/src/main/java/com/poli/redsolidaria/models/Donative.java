@@ -27,13 +27,13 @@ public class Donative {
     @Column(name = "amount", length = 100, nullable = false)
     private Integer amount;
 
-    @Column(name = "image", length = 200 , nullable = false)
+    @Column(name = "image", length = 200, nullable = false)
     private String image;
 
-    @Column(name = "description", length = 300, nullable = false)
+    @Column(name = "description", length = 300)
     private String description;
 
-    @Column(name = "donativeCondition", length = 100, nullable = false)
+    @Column(name = "donativeCondition", length = 100)
     private String donativeCondition;
 
     @Column(name = "date", nullable = false)

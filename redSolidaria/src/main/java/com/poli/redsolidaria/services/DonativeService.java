@@ -6,12 +6,14 @@ import java.util.List;
 
 public interface DonativeService {
 
-    List<Donative> getAviableFoodDonations();
+    List<Donative> getAvailableDonations();
 
-    List<Donative> getAviableStudyDonatios();
+    List<Donative> getAvailableFoodDonations();
 
-    List<Donative>  getAviableTimeDonations();
+    List<Donative> getAvailableSuppliesDonations();
 
-    List<Donative> getAviableOthersDonations();
+    List<Donative>  getAvailableTimeDonations();
+
+    List<Donative> getAvailableOtherDonations();
 
 }

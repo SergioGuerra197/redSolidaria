@@ -9,7 +9,7 @@
 <body>
     <main layout:fragment="content">
         <h2 class="successMessage ft-1 pd-2" th:if="${param.success}">
-            Exito al registrar usuario
+            Exito al registrar usuario!
         </h2>
         <h1 class="signuptitle ft-3">Registrate para enterarte de las contribuciones y beneficios</h1>
         <div class="signupcontainer pd-1">
@@ -23,8 +23,8 @@
                     <label for="name" class="signupform__placeholder">Nombre</label>
                 </div>
                 <div class="entryarea">
-                    <input type="text" id="email" th:field="*{email}" class="signupform__input pd-1" required>
-                    <label for="email" class="signupform__placeholder">Correo</label>
+                    <input type="text" id="email_signup" th:field="*{email}" class="signupform__input pd-1" required>
+                    <label for="email_signup" class="signupform__placeholder">Correo</label>
                 </div>
                 <div class="entryarea">
                     <input type="password" id="password" th:field="*{password}" class="signupform__input pd-1" required>
@@ -36,10 +36,10 @@
                 </div>
                 <div class="entryarea">
                     <select class="signupform__input pd-1" id="role" th:field="*{role}">
-                        <option value="estudiante" selected>Estudiante</option>
-                        <option value="profesor">Profesor</option>
-                        <option value="administrativo">Administrativo</option>
-                        <option value="otro">Otro</option>
+                        <option value="Estudiante" selected>Estudiante</option>
+                        <option value="Profesor">Profesor</option>
+                        <option value="Administrativo">Administrativo</option>
+                        <option value="Otro">Otro</option>
                     </select>
                     <label for="role" class="signupform__placeholder">Rol</label>
                 </div>

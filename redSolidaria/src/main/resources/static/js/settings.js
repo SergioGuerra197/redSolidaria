@@ -1,50 +1,60 @@
+
 const actualPass = document.getElementById("actual_password");
 const firstPass = document.getElementById("first_password");
 const secondPass = document.getElementById("password");
 const labels = document.getElementsByClassName("label__pass");
+const userN = document.getElementById("name");
+const contactN = document.getElementById("contact_number");
 
 function validatePassField() {
-    if (actualPass.value.trim() === "")
-        actualPass.removeAttribute("required");
-    /*if(!(firstPass === secondPass)){
-        secondPass.setCustomValidity("Las contraseñas no coinciden")
-//        document.getElementById("parrafoPrueba").display = "block";
-    }*/
+    if (actualPass.value.trim() === "" &&
+        userN.value.trim() !== "" &&
+        contactN.value.trim() !== "")
+            actualPass.removeAttribute("required");
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Function to enable or disable the new password fields
-    function toggleNewPasswordFields() {
-        if (actualPass.value.trim() === "") {
-            for (let i = 0; i < labels.length; i++) {
-                labels[i].classList.add("fixed");
-            }
-
-            firstPass.classList.add("disabled");
-            firstPass.disabled = true;
-            firstPass.value = "";
-
-            secondPass.classList.add("disabled");
-            secondPass.disabled = true;
-            secondPass.value = "";
-        } else {
-
-
-            for (let i = 0; i < labels.length; i++) {
-                labels[i].classList.remove("fixed");
-            }
-
-            firstPass.classList.remove("disabled");
-            firstPass.disabled = false;
-
-            secondPass.classList.remove("disabled");
-            secondPass.disabled = false;
+actualPass.addEventListener("input", function(){
+    if (actualPass.value.trim() === "") {
+        for (let i = 0; i < labels.length; i++) {
+            labels[i].classList.add("fixed");
         }
+
+        firstPass.classList.add("disabled");
+        firstPass.disabled = true;
+        firstPass.value = "";
+
+        secondPass.classList.add("disabled");
+        secondPass.disabled = true;
+        secondPass.value = "";
+    } else {
+        for (let i = 0; i < labels.length; i++) {
+            labels[i].classList.remove("fixed");
+        }
+
+        firstPass.classList.remove("disabled");
+        firstPass.disabled = false;
+
+        secondPass.classList.remove("disabled");
+        secondPass.disabled = false;
     }
+});
 
-    // Event listener for input event on the current password field
-    actualPass.addEventListener("input", toggleNewPasswordFields);
+firstPass.addEventListener('input', function(){
+    if (secondPass.value !== "") {
+        if (firstPass.value !== secondPass.value)
+            secondPass.setCustomValidity('Las contraseñas no coinciden.');
+        else
+            secondPass.setCustomValidity('');
+    } else
+        secondPass.setCustomValidity('Rellene este campo.');
+});
 
-    // Initial call to set the correct state on page load
-    toggleNewPasswordFields();
+secondPass.addEventListener('input', function(){
+    if (secondPass.value !== "") {
+        if (firstPass.value !== secondPass.value)
+            secondPass.setCustomValidity('Las contraseñas no coinciden.');
+        else
+            secondPass.setCustomValidity('');
+    } else
+        secondPass.setCustomValidity('Rellene este campo.');
 });

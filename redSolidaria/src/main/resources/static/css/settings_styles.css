@@ -67,7 +67,6 @@
     pointer-events: none;
     transition: 0.5s ease;
     padding: 0 1rem;
-    font-size: 1.3rem;
 }
 
 .usersetleft__input:valid ~ .usersetleft__input--placeholder,
@@ -118,7 +117,6 @@
     pointer-events: none;
     transition: 0.5s ease;
     padding: 0 1rem;
-    font-size: 1.3rem;
 }
 
 .usersetright__input:valid ~ .usersetright__input--placeholder,

@@ -4,9 +4,73 @@
       layout:decorate="~{layouts/index}">
 <head>
     <title></title>
-    <link rel="stylesheet" th:href="@{/css/donate_styles.css}">
+    <link rel="stylesheet" th:href="@{/css/donatives_styles.css}">
 </head>
 <body>
-
+    <main layout:fragment="content" th:object="${donatives}">
+        <h1 class="usersettitle ft-2">Elije lo que mejor se acomode a tus necesidades y recuerda darle las gracias al
+            donador</h1>
+        <div class="navtype ft-1">
+            <a th:href="@{/}" class="navtype__link" id="teach_link">Asesoria</a>
+            <a th:href="@{/}" class="navtype__link" id="supplies_link">Util Escolar</a>
+            <a th:href="@{/filter/food}" class="navtype__link" id="food_link">Alimento</a>
+            <a th:href="@{/}" class="navtype__link" id="other_link">Varios</a>
+        </div>
+        <div class="gridlist">
+            <div class="product" th:each="donative : ${donatives}">
+                <button type="button" class="product__details" onclick="openModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="26"
+                         height="26" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ECF3DB" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                        <path d="M12 9h.01" />
+                        <path d="M11 12h1v4h1" />
+                    </svg>
+                </button>
+                <div class="product__image"></div>
+                <h2 class="product__title m-t-1 no-mg" th:text="${donative.name}"></h2>
+                <p class="product__owner no-mg ft-1 m-b-1" th:text="'Donador: ' + ${donative.idUser}"></p>
+                <div class="product__info">
+                    <p class="no-mg ft-1" th:text="'Cantidad: ' + ${donative.amount}"></p>
+                    <p class="no-mg ft-1" th:text="'Estado: ' + ${donative.donativeCondition}"></p>
+                    <button class="ft-1" type="button">Contactar</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="modal">
+            <div class="productinfo">
+                <button type="button" class="modal__close no-pd" onclick="closeModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24"
+                         viewBox="0 0 24 24" stroke-width="1.5" stroke="#2A3C29" fill="none" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M18 6l-12 12" />
+                        <path d="M6 6l12 12" />
+                    </svg>
+                </button>
+                <div class="field">
+                    <p><b>Nombre: </b>Asesoria A&G2</p>
+                </div>
+                <div class="field">
+                    <p><b>Donador: </b>Simón Sánchez</p>
+                </div>
+                <div class="field">
+                    <p><b>Tipo: </b>Asesoria</p>
+                </div>
+                <div class="field">
+                    <p><b>Duración: </b>2 horas</p>
+                </div>
+                <div class="field">
+                    <p><b>Fecha de publicación: </b>02-06-2024</p>
+                </div>
+                <div class="field">
+                    <p><b>Descripción: </b>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem iure ad
+                        aspernatur, est adipisci dolorem. Aperiam labore reiciendis adipisci odit consequatur eius velit
+                        nesciunt, quam architecto qui perferendis ipsa tenetur.</p>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

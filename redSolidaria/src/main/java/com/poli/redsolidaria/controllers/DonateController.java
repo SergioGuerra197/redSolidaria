@@ -26,6 +26,7 @@ public class DonateController {
 
     private final UserService userService;
     private final DonateService donateService;
+
     @GetMapping
     public String getForm(Model model){
         model.addAttribute("donative", new Donative());
@@ -41,15 +42,16 @@ public class DonateController {
         newDonative.setIdUser(String.valueOf(user.getId()));
         newDonative.setDonativeDate(LocalDateTime.now());
         newDonative.setAvailable(Boolean.TRUE);
-        if (newDonative.getType()=="Alimento")
-            newDonative.setImage("");
-        else if(newDonative.getType()=="Util escolar")
-            newDonative.setImage("");
-        else if(newDonative.getType()=="Asesoria")
-            newDonative.setImage("");
-        else if(newDonative.getType()=="Varios")
-            newDonative.setImage("");
+        switch (newDonative.getType()) {
+            case "Alimento" -> newDonative.setImage("food.png");
+            case "Util escolar" -> newDonative.setImage("supplies.png");
+            case "Asesoria" -> {
+                newDonative.setImage("teaching.png");
+                newDonative.setDonativeCondition("");
+            }
+            case "Varios" -> newDonative.setImage("other.png");
+        }
         donateService.createDonative(newDonative);
-        return "redirect:/signup";
+        return "redirect:/donate?success";
     }
 }

@@ -5,6 +5,7 @@
     --secondary: #708967;
     --black: #000;
     --alt-black: #2A3C29;
+    --alpha-black: #00000080;
     --white: #FFF;
     --alpha-white: #FFFFFF80;
     --gray: #9C9C9C;
@@ -31,6 +32,10 @@ body {
     margin: 0;
     font-size: 16px;
     line-height: 1.5;
+}
+
+label{
+    font-size: 1.3rem;
 }
 
 /* Navegation bar */
