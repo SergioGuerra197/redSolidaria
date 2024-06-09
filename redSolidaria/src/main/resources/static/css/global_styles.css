@@ -107,6 +107,7 @@ label{
 }
 
 .submenu--wrap{
+    z-index: 1111;
     position: absolute;
     color: var(--white);
     top: 100%;

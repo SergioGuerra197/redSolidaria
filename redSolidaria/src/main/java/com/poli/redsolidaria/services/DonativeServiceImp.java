@@ -1,18 +1,25 @@
 package com.poli.redsolidaria.services;
 
 import com.poli.redsolidaria.models.Donative;
+import com.poli.redsolidaria.models.User;
 import com.poli.redsolidaria.repositories.DonateRepository;
 import com.poli.redsolidaria.repositories.DonativeRepository;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class DonativeServiceImp implements DonativeService{
 
     private final DonativeRepository donativeRepository;
+    private final UserService userService;
 
-    public DonativeServiceImp(DonativeRepository donativeRepository){
+    public DonativeServiceImp(DonativeRepository donativeRepository, UserService userService){
         this.donativeRepository = donativeRepository;
+        this.userService = userService;
     }
 
     @Override
@@ -20,23 +27,14 @@ public class DonativeServiceImp implements DonativeService{
         return donativeRepository.findAll();
     }
 
-    @Override
-    public List<Donative> getAvailableFoodDonations() {
-        return donativeRepository.findByTypeAndAvailableTrue("Alimento");
-    }
+   @Override
+    public List<Donative> findByType(String type){
+        return donativeRepository.findByTypeAndAvailableTrue(type);
+   }
 
-    @Override
-    public List<Donative> getAvailableSuppliesDonations() {
-        return donativeRepository.findByTypeAndAvailableTrue("Util escolar");
-    }
-
-    @Override
-    public List<Donative> getAvailableTimeDonations() {
-        return donativeRepository.findByTypeAndAvailableTrue("Asesoria");
-    }
-
-    @Override
-    public List<Donative> getAvailableOtherDonations() {
-        return donativeRepository.findByTypeAndAvailableTrue("Varios");
+    private User getUser(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = authentication.getName();
+        return userService.findUserByEmail(email);
     }
 }

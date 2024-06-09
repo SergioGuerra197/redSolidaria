@@ -46,7 +46,7 @@ public class DonateController {
             case "Alimento" -> newDonative.setImage("food.png");
             case "Util escolar" -> newDonative.setImage("supplies.png");
             case "Asesoria" -> {
-                newDonative.setImage("teaching.png");
+                newDonative.setImage("teach.png");
                 newDonative.setDonativeCondition("");
             }
             case "Varios" -> newDonative.setImage("other.png");

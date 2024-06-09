@@ -11,10 +11,10 @@
         <h1 class="usersettitle ft-2">Elije lo que mejor se acomode a tus necesidades y recuerda darle las gracias al
             donador</h1>
         <div class="navtype ft-1">
-            <a th:href="@{/}" class="navtype__link" id="teach_link">Asesoria</a>
-            <a th:href="@{/}" class="navtype__link" id="supplies_link">Util Escolar</a>
-            <a th:href="@{/filter/food}" class="navtype__link" id="food_link">Alimento</a>
-            <a th:href="@{/}" class="navtype__link" id="other_link">Varios</a>
+            <a th:href="@{/donatives/filter(type='Asesoria')}" class="navtype__link" id="teach_link">Asesoria</a>
+            <a th:href="@{/donatives/filter(type='Util escolar')}" class="navtype__link" id="supplies_link">Util Escolar</a>
+            <a th:href="@{/donatives/filter(type='Alimento')}" class="navtype__link" id="food_link">Alimento</a>
+            <a th:href="@{/donatives/filter(type='Varios')}" class="navtype__link" id="other_link">Varios</a>
         </div>
         <div class="gridlist">
             <div class="product" th:each="donative : ${donatives}">
@@ -28,7 +28,7 @@
                         <path d="M11 12h1v4h1" />
                     </svg>
                 </button>
-                <div class="product__image"></div>
+                <div class="product__image" th:style="'background-image: url(../img/' + ${donative.image}+')'"></div>
                 <h2 class="product__title m-t-1 no-mg" th:text="${donative.name}"></h2>
                 <p class="product__owner no-mg ft-1 m-b-1" th:text="'Donador: ' + ${donative.idUser}"></p>
                 <div class="product__info">

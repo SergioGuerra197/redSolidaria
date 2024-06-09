@@ -11,8 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -38,17 +40,16 @@ public class DonativesController {
         return "/pages/donatives";
     }
 
-    @GetMapping("/food")
-    public String getAvaliableFoodDonations(Model model){
-        List <Donative> list = donativeService.getAvailableFoodDonations();
-        list = list.stream()
-                .filter(donative -> {
-                    getUser();
-                    return true;
-                })
-                .collect(Collectors.toList());
-        model.addAttribute("donatives", list);
-        model.addAttribute("mainTitle", "¡Elije lo que mas necesites!");
+    @GetMapping("/filter")
+    public String filterDonatives(@RequestParam("type") String type, Model model) {
+        List<Donative> allDonatives = donativeService.findByType(type);
+        List<Donative> filteredDonatives = new ArrayList<>();
+        for (Donative donative : allDonatives){
+            if (!donative.getIdUser().equals(String.valueOf(getUser().getId()))){
+                filteredDonatives.add(donative);
+            }
+        }
+        model.addAttribute("donatives", filteredDonatives);
 
         return "/pages/donatives";
     }

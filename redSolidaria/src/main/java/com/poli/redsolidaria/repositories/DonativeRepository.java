@@ -7,4 +7,7 @@ import java.util.List;
 
 public interface DonativeRepository extends JpaRepository<Donative, Long> {
     List<Donative> findByTypeAndAvailableTrue(String type);
+
+//    List<Donative> findByType(String type);
+
 }
