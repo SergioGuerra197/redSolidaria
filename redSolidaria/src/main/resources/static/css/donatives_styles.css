@@ -246,5 +246,5 @@
 
 .contact__submit:hover{
     background-color: transparent;
-    color: var(--primary-light);
+    color: var(--alt-black);
 }
