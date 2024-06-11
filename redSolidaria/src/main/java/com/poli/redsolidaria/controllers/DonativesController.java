@@ -47,7 +47,7 @@ public class DonativesController {
             User user = userService.findUserById(Long.parseLong(donative.get().getIdUser()));
             Map<String, Object> responseBody = new HashMap<>();
             responseBody.put("donative", donative.get());
-            responseBody.put("userName", user.getName());
+            responseBody.put("user", user);
             return ResponseEntity.ok()
                     .contentType(MediaType.APPLICATION_JSON)
                     .body(responseBody);

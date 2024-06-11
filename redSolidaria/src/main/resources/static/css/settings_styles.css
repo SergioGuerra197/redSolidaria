@@ -70,8 +70,7 @@
 }
 
 .usersetleft__input:valid ~ .usersetleft__input--placeholder,
-.usersetleft__input:focus ~ .usersetleft__input--placeholder,
-.fixed{
+.usersetleft__input:focus ~ .usersetleft__input--placeholder{
     color: var(--white);
     background-color: var(--secondary);
     border-radius: .5rem;
@@ -120,8 +119,7 @@
 }
 
 .usersetright__input:valid ~ .usersetright__input--placeholder,
-.usersetright__input:focus ~ .usersetright__input--placeholder,
-.fixed{
+.usersetright__input:focus ~ .usersetright__input--placeholder{
     color: var(--white);
     background-color: var(--secondary);
     border-radius: .5rem;
@@ -187,8 +185,4 @@ input[type="radio"]:checked::after{
     visibility: visible;
     border: 2px solid var(--secondary);
     padding: .8rem;
-}
-
-.disabled{
-    background-color: var(--primary-dark);
 }

@@ -8,6 +8,9 @@
 </head>
 <body>
     <main layout:fragment="content" th:object="${donatives}">
+        <h2 class="successMessage ft-1 pd-2" th:if="${param.success}">
+            El donador ha recibido tu mensaje, de ser posible se pondrá en contacto contigo!
+        </h2>
         <h1 class="donativestitle ft-2">Elije lo que mejor se acomode a tus necesidades y recuerda darle las gracias al
             donador</h1>
         <div class="navtype ft-1">
@@ -19,7 +22,7 @@
         </div>
         <div class="gridlist">
             <div class="product" th:each="donative : ${donatives}">
-                <a th:href="@{/donatives/(id=${donative.id})}" type="button" class="product__details">
+                <a th:href="@{/donatives/(id=${donative.id})}" class="product__details">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="26"
                          height="26" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ECF3DB" fill="none"
                          stroke-linecap="round" stroke-linejoin="round">
@@ -35,13 +38,13 @@
                     <p class="no-mg ft-1" th:if="${donative.type == 'Asesoria'}" th:text="'Duración: ' + ${donative.amount} + ' horas'"></p>
                     <p class="no-mg ft-1" th:unless="${donative.type == 'Asesoria'}" th:text="'Cantidad: ' + ${donative.amount}"></p>
                     <p class="no-mg ft-1" th:if="${donative.donativeCondition != ''}" th:text="'Estado: ' + ${donative.donativeCondition}"></p>
-                    <button class="ft-1" type="button">Contactar</button>
+                    <a th:href="@{/donatives/(id=${donative.id})}" class="contact--button ft-1"></a>
                 </div>
             </div>
         </div>
         <div class="modal" id="modal">
-            <div class="productinfo">
-                <button type="button" class="modal__close no-pd" onclick="closeModal()">
+            <div class="modal__content">
+                <button title="close" type="button" class="modal__close no-pd">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24"
                          viewBox="0 0 24 24" stroke-width="1.5" stroke="#2A3C29" fill="none" stroke-linecap="round"
                          stroke-linejoin="round">
@@ -50,27 +53,41 @@
                         <path d="M6 6l12 12" />
                     </svg>
                 </button>
-                <div class="field">
-                    <p id="name"></p>
+                <div class="modal__product">
+                    <div class="field">
+                        <p id="name"></p>
+                    </div>
+                    <div class="field">
+                        <p id="idUser"></p>
+                    </div>
+                    <div class="field">
+                        <p id="type"></p>
+                    </div>
+                    <div class="field field--condition">
+                        <p id="condition"></p>
+                    </div>
+                    <div class="field">
+                        <p id="amount"></p>
+                    </div>
+                    <div class="field">
+                        <p id="date"></p>
+                    </div>
+                    <div class="field">
+                        <p id="description"></p>
+                    </div>
                 </div>
-                <div class="field">
-                    <p id="idUser"></p>
-                </div>
-                <div class="field">
-                    <p id="type"></p>
-                </div>
-                <div class="field field--condition">
-                    <p id="condition"></p>
-                </div>
-                <div class="field">
-                    <p id="amount"></p>
-                </div>
-                <div class="field">
-                    <p id="date"></p>
-                </div>
-                <div class="field">
-                    <p id="description"></p>
-                </div>
+                <form th:action="@{/mail/send}" class="modal__contact m-t-2"  method="post">
+                    <input type="hidden" th:name="mail" class="contact__email">
+                    <div class="entryarea">
+                        <input th:name="subject" type="text" id="contact__subject" class="contact__input pd-1 disabled" required readonly>
+                        <label for="contact__subject" class="contact__input--placeholder fixed">Asunto</label>
+                    </div>
+                    <div class="entryarea">
+                        <textarea th:name="body" id="contact__body" class="contact__input pd-1" required></textarea>
+                        <label for="contact__body" class="contact__input--placeholder">Mensaje</label>
+                    </div>
+                    <input type="submit" class="contact__submit m-t-1">
+                </form>
             </div>
         </div>
     </main>

@@ -349,8 +349,7 @@ button[type="submit"]{
 }
 
 /* Shared View Styles */
-/* --- LOGIN AND SIGNUP VIEWS --- */
-
+/* --- LOGIN, SIGNUP, SETTINGS & DONATIVES VIEWS --- */
 .entryarea{
     position: relative;
     width: 100%;    
@@ -361,5 +360,44 @@ button[type="submit"]{
     transition: .5s ease;
     stroke: var(--white);
 }
+
+.fixed{
+    color: var(--white)!important;
+    background-color: var(--secondary)!important;
+    border-radius: .5rem!important;
+    transform: translateX(1rem) translateY(-.7rem)!important;
+    font-size: 1rem!important;
+    padding: 0 1rem!important;
+}
+
+.disabled{
+    background-color: var(--primary-dark)!important;
+}
+
+/* DONATE & DONATIVES VIEWS */
+textarea{
+    font-size: 1.2rem;
+    font-family: "Montserrat", sans-serif;
+    resize: none;
+}
+
+.successMessage{
+    border-radius: .5rem;
+    background-color: var(--secondary);
+    z-index: 1111;
+    position: fixed;
+    color: var(--white);
+    animation: TopBottom .6s;
+    top:4rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.successMessage::before{
+    transition: .5s ease-in;
+    background-color: var(--success);
+}
+
+
 
 
